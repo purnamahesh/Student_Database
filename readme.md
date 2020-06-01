@@ -1,6 +1,6 @@
 # Student Databse Application
 
-## Explictly imported Modules
+## Explicitly imported Modules
 * **Tkinter**
     * Tkinter is a Python binding to the Tk GUI toolkit. It is the standard Python interface to the Tk GUI toolkit, and is Python's de facto standard GUI
 * **sqlite3**
@@ -13,7 +13,7 @@ from tkinter import messagebox
 ```
 
 
-### Home Screen
+### Main Window
 
 ![image1](./images/student-1.png)
 ```python
@@ -50,7 +50,7 @@ root.mainloop()
 ### Creating Table
 ![image1](./images/student-2.png)
 
-> **Note :** The **student.db** file will be created in the same directory of the source code
+> **Note :** The **student.db** file will be created in the same directory as the source code.
 
 ```python
 def create():
@@ -73,7 +73,7 @@ def create():
     con.close()
 ```
 
-### Inseting Records into table
+### Inserting Records into table
 ![image1](./images/student-3.png)
 ```python
 def submit():
