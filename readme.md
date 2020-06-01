@@ -155,6 +155,7 @@ def delete():
 ### Editing Records
 ![image1](./images/student-7.png)
 > By Clicking on **Edit record** Button, This window opens
+
 ```python
 def edit():
     """Code for creating top level window to be poped when "Edit Record" Button Pressed""" 
@@ -182,12 +183,12 @@ def edit():
     rid2.grid(row=4,column=1)
     
     Button(top,text='update',command=update).grid(row=5,column=0,columnspan=2,padx=10,pady=5,sticky=W+E)
-
 ```
 ### Update Target Record
 ![image1](./images/student-8.png)
 > This window consists of  **student ID**,**Name**,**Phone** and **Target Student ID** Text Fields . The **Target Student ID** is the record to be modified.
 Once you filled all fields press **Update** Button
+
 ```python
 def update():
     # Update existing Records
@@ -218,6 +219,7 @@ def update():
 ### Droping Table
 ![image1](./images/student-11.png)
 > When you try to drop the table , it asks for conformation , if you press **yes** table will be droped.
+
 ```python
 def droptable():
     # Droping table
