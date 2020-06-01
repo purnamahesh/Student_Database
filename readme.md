@@ -238,4 +238,5 @@ def droptable():
 ```
 ### Trying to Drop table
 ![image1](./images/student-12.png)
+
 > if table doesnt exist and you clicked on **Delete Table** You will see this warning
