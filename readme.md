@@ -51,8 +51,8 @@ root.mainloop()
 ![image1](./images/student-2.png)
 
 > **Note :** The **student.db** file will be created in the same directory of the source code
-```python
 
+```python
 def create():
     # Creating table
     con = sqlite3.connect('students.db')
@@ -72,6 +72,7 @@ def create():
     con.commit()
     con.close()
 ```
+
 ### Inseting Records into table
 ![image1](./images/student-3.png)
 ```python
@@ -91,7 +92,6 @@ def submit():
     sid.delete(0,END)
     name.delete(0,END)
     phone.delete(0,END)
-
 ```
 ### Fetching records from student.db
 ![image1](./images/student-4.png)
