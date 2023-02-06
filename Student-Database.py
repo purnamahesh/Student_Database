@@ -1,4 +1,5 @@
 from tkinter import *
+from customtkinter import *
 import sqlite3
 from tkinter import messagebox
 
@@ -21,16 +22,16 @@ def update():
 
 def edit():
     global sid2,name2,phone2,rid2
-    top = Toplevel()
-    l1 = Label(top,text='Student ID:')
-    l2 = Label(top,text='Name:')
-    l3 = Label(top,text='Phone:')
-    l4 = Label(top,text='Target Student ID:')
+    top = CTkToplevel()
+    l1 = CTkLabel(top,text='Student ID:')
+    l2 = CTkLabel(top,text='Name:')
+    l3 = CTkLabel(top,text='Phone:')
+    l4 = CTkLabel(top,text='Target Student ID:')
 
-    sid2 = Entry(top,width=50)
-    name2 = Entry(top,width=50)
-    phone2 = Entry(top,width=50)
-    rid2 = Entry(top,width=50)
+    sid2 = CTkEntry(top,width=500)
+    name2 = CTkEntry(top,width=500)
+    phone2 = CTkEntry(top,width=500)
+    rid2 = CTkEntry(top,width=500)
 
     l1.grid(row=0,column=0,padx=10,pady=5)
     sid2.grid(row=0,column=1,padx=10)
@@ -39,11 +40,11 @@ def edit():
     l3.grid(row=2,column=0,pady=5)
     phone2.grid(row=2,column=1)
 
-    Label(top).grid(row=3,column=0,pady=5) # divider
+    CTkLabel(top).grid(row=3,column=0,pady=5) # divider
     l4.grid(row=4,column=0,padx=10,pady=5)
     rid2.grid(row=4,column=1)
     
-    Button(top,text='update',command=update).grid(row=5,column=0,columnspan=2,padx=10,pady=5,sticky=W+E)
+    CTkButton(top,text='update',command=update).grid(row=5,column=0,columnspan=2,padx=10,pady=5,sticky=W+E)
 
 def create():
     con = sqlite3.connect('students.db')
@@ -125,28 +126,28 @@ def query():
         con.commit()
         con.close()
         return
-    top = Toplevel()
+    top = CTkToplevel()
     for i in range(len(o)):
-        Label(top,text=o[i][0]).grid(row=i,column=0,pady=3,padx=10)
-        Label(top,text=o[i][1]).grid(row=i,column=1,pady=3,padx=10)
-        Label(top,text=o[i][2]).grid(row=i,column=2,pady=3,padx=10)
-        Label(top,text=o[i][3]).grid(row=i,column=3,pady=3,padx=10)
+        CTkLabel(top,text=o[i][0]).grid(row=i,column=0,pady=3,padx=10)
+        CTkLabel(top,text=o[i][1]).grid(row=i,column=1,pady=3,padx=10)
+        CTkLabel(top,text=o[i][2]).grid(row=i,column=2,pady=3,padx=10)
+        CTkLabel(top,text=o[i][3]).grid(row=i,column=3,pady=3,padx=10)
     c.close()
     con.commit()
     con.close()
 
-root = Tk()
+root = CTk()
 root.title('Student Form')
 
-l1 = Label(root,text='Student ID:')
-l2 = Label(root,text='Name:')
-l3 = Label(root,text='Phone:')
-l4 = Label(root,text='Student ID:')
+l1 = CTkLabel(root,text='Student ID:')
+l2 = CTkLabel(root,text='Name:')
+l3 = CTkLabel(root,text='Phone:')
+l4 = CTkLabel(root,text='Student ID:')
 
-sid = Entry(root,width=50)
-name = Entry(root,width=50)
-phone = Entry(root,width=50)
-rid = Entry(root,width=50)
+sid = CTkEntry(root,width=500)
+name = CTkEntry(root,width=500)
+phone = CTkEntry(root,width=500)
+rid = CTkEntry(root,width=500)
 
 l1.grid(row=0,column=0,padx=10,pady=5)
 sid.grid(row=0,column=1,padx=10)
@@ -154,13 +155,13 @@ l2.grid(row=1,column=0,pady=5)
 name.grid(row=1,column=1)
 l3.grid(row=2,column=0,pady=5)
 phone.grid(row=2,column=1)
-Button(root,text='Submit',command=submit).grid(row=3,column=0,columnspan=2,sticky=W+E,padx=10,pady=5)
-Button(root,text='Show Database',command=query).grid(row=4,column=0,columnspan=2,sticky=W+E,padx=10,pady=5)
+CTkButton(root,text='Submit',command=submit).grid(row=3,column=0,columnspan=2,sticky=W+E,padx=10,pady=5)
+CTkButton(root,text='Show Database',command=query).grid(row=4,column=0,columnspan=2,sticky=W+E,padx=10,pady=5)
 l4.grid(row=5,column=0,pady=5)
 rid.grid(row=5,column=1)
-Button(root,text='Delete record',command=delete).grid(row=6,column=0,columnspan=2,sticky=W+E,padx=10,pady=5)
-Button(root,text='Edit record',command=edit).grid(row=7,column=0,columnspan=2,sticky=W+E,padx=10,pady=5)
-Button(root,text='Create Table',command=create).grid(row=8,column=0,columnspan=2,sticky=W+E,padx=10,pady=5)
-Button(root,text='Delete Table',command=droptable).grid(row=9,column=0,columnspan=2,sticky=W+E,padx=10,pady=5)
+CTkButton(root,text='Delete record',command=delete).grid(row=6,column=0,columnspan=2,sticky=W+E,padx=10,pady=5)
+CTkButton(root,text='Edit record',command=edit).grid(row=7,column=0,columnspan=2,sticky=W+E,padx=10,pady=5)
+CTkButton(root,text='Create Table',command=create).grid(row=8,column=0,columnspan=2,sticky=W+E,padx=10,pady=5)
+CTkButton(root,text='Delete Table',command=droptable).grid(row=9,column=0,columnspan=2,sticky=W+E,padx=10,pady=5)
 
 root.mainloop()
